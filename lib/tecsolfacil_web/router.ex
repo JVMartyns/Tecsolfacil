@@ -5,8 +5,11 @@ defmodule TecsolfacilWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", TecsolfacilWeb do
+  scope "/api", TecsolfacilWeb, as: :api do
     pipe_through :api
+
+    post "/users/login", UserController, :login
+    post "/users/create", UserController, :create
   end
 
   # Enables LiveDashboard only for development
