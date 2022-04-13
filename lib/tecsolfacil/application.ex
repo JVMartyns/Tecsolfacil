@@ -15,9 +15,10 @@ defmodule Tecsolfacil.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Tecsolfacil.PubSub},
       # Start the Endpoint (http/https)
-      TecsolfacilWeb.Endpoint
+      TecsolfacilWeb.Endpoint,
       # Start a worker by calling: Tecsolfacil.Worker.start_link(arg)
       # {Tecsolfacil.Worker, arg}
+      {Finch, name: MyFinch}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

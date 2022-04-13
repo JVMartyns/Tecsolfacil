@@ -3,7 +3,7 @@ defmodule TecsolfacilWeb.UserController do
 
   alias Tecsolfacil.Accounts
 
-  action_fallback PlugfacilWeb.FallbackController
+  action_fallback TecsolfacilWeb.FallbackController
 
   def login(conn, %{"user" => user_data}) do
     %{"email" => email, "password" => password} = user_data

@@ -25,10 +25,17 @@ defmodule TecsolfacilWeb.FallbackController do
     |> render(:"404")
   end
 
-  # def auth_error(conn, {_type, _resource}, _opts) do
-  #   conn
-  #   |> put_status(:unauthorized)
-  #   |> put_view(ErrorView)
-  #   |> render("401.json")
-  # end
+  def call(conn, {:error, :unauthorized}) do
+    conn
+    |> put_status(:unauthorized)
+    |> put_view(ErrorView)
+    |> render(:"401")
+  end
+
+  def auth_error(conn, {_type, _resource}, _opts) do
+    conn
+    |> put_status(:unauthorized)
+    |> put_view(ErrorView)
+    |> render("401.json")
+  end
 end

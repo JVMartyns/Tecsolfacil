@@ -5,11 +5,27 @@ defmodule TecsolfacilWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :authentication do
+    plug Guardian.Plug.Pipeline,
+      module: Tecsolfacil.Guardian,
+      error_handler: TecsolfacilWeb.FallbackController
+
+    plug Guardian.Plug.VerifyHeader, claims: %{"typ" => "access"}
+    plug Guardian.Plug.EnsureAuthenticated
+    plug Guardian.Plug.LoadResource
+  end
+
   scope "/api", TecsolfacilWeb, as: :api do
     pipe_through :api
 
     post "/users/login", UserController, :login
     post "/users/create", UserController, :create
+  end
+
+  scope "/api", TecsolfacilWeb, as: :api do
+    pipe_through [:api, :authentication]
+
+    get "/cep/:cep", AddressController, :show
   end
 
   # Enables LiveDashboard only for development

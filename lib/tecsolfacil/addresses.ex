@@ -14,10 +14,4 @@ defmodule Tecsolfacil.Addresses do
     |> Address.changeset(attrs)
     |> Repo.insert()
   end
-
-  # def update_address(%Address{} = address, attrs) do
-  #   address
-  #   |> Address.changeset(attrs)
-  #   |> Repo.update()
-  # end
 end

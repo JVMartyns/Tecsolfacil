@@ -35,6 +35,7 @@ defmodule Tecsolfacil.MixProject do
     [
       #Personal Libs--------
       {:guardian, "~> 2.0"},
+      {:finch, "~> 0.11"},
       #---------------------
       {:phoenix, "~> 1.6.6"},
       {:phoenix_ecto, "~> 4.4"},
