@@ -5,19 +5,20 @@ defmodule Tecsolfacil.Viacep do
 
   require Logger
 
-  def get_adress(cep) do
+  def get_adress(cep \\ "") do
     viacep_url = "https://viacep.com.br/ws/#{cep}/json/"
 
-    {:ok, address} =
+    {:ok, response} =
       :get
       |> Finch.build(viacep_url)
       |> Finch.request(MyFinch)
 
-    if address.status == 200 do
-      {:ok, address_body} = Jason.decode(address.body)
-      address_body
-    else
-      {:error, :not_found}
+    case Jason.decode(response.body) do
+      {:ok, %{"cep" => _cep} = address} ->
+        {:ok, address}
+
+      _else ->
+        {:error, :not_found}
     end
   end
 end

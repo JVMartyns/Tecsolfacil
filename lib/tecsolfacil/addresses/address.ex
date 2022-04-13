@@ -23,7 +23,18 @@ defmodule Tecsolfacil.Addresses.Address do
   @doc false
   def changeset(address, attrs) do
     address
-    |> cast(attrs, [:cep, :logradouro, :complemento, :bairro, :localidade, :uf, :ibge, :gia, :ddd, :siafi])
+    |> cast(attrs, [
+      :cep,
+      :logradouro,
+      :complemento,
+      :bairro,
+      :localidade,
+      :uf,
+      :ibge,
+      :gia,
+      :ddd,
+      :siafi
+    ])
     |> validate_required([:cep])
     |> unique_constraint(:cep)
   end

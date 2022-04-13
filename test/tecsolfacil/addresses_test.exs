@@ -16,7 +16,7 @@ defmodule Tecsolfacil.AddressesTest do
     "gia" => "",
     "ddd" => "81",
     "siafi" => "2333"
-    }
+  }
 
   describe "Addresses" do
     test "create_address/1" do

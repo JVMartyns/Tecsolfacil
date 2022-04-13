@@ -14,7 +14,8 @@ defmodule TecsolfacilWeb.UserController do
       {:error, :unauthorized}
     else
       if user.password == password do
-        {:ok, token, _claims} = Tecsolfacil.Guardian.encode_and_sign(user, %{typ: "access"}, ttl: {1, :hour})
+        {:ok, token, _claims} =
+          Tecsolfacil.Guardian.encode_and_sign(user, %{typ: "access"}, ttl: {1, :hour})
 
         conn
         |> put_status(:ok)

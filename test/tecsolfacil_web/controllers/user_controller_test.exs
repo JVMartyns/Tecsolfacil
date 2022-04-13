@@ -3,7 +3,6 @@ defmodule TecsolfacilWeb.UserControllerTest do
   use Tecsolfacil.DataCase
 
   describe "UserController" do
-
     # @user_data %{
     #   "user" => %{
     #   "name" => "JVMartyns",
@@ -11,17 +10,17 @@ defmodule TecsolfacilWeb.UserControllerTest do
     #   "password" => "passw0rd"
     # }}
 
-  #   test "create/2", %{conn: conn} do
+    #   test "create/2", %{conn: conn} do
 
-  #     expected_response = %{
-  #       "user" => %{
-  #       "name" => "JVMartyns",
-  #       "email" => "jv@email.com"
-  #     }}
+    #     expected_response = %{
+    #       "user" => %{
+    #       "name" => "JVMartyns",
+    #       "email" => "jv@email.com"
+    #     }}
 
-  #     response = TecsolfacilWeb.UserController(conn, @user_data)
+    #     response = TecsolfacilWeb.UserController(conn, @user_data)
 
-  #     assert expected_response == response
-  #   end
+    #     assert expected_response == response
+    #   end
   end
 end

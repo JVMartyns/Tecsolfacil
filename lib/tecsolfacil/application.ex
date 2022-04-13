@@ -18,7 +18,8 @@ defmodule Tecsolfacil.Application do
       TecsolfacilWeb.Endpoint,
       # Start a worker by calling: Tecsolfacil.Worker.start_link(arg)
       # {Tecsolfacil.Worker, arg}
-      {Finch, name: MyFinch}
+      {Finch, name: MyFinch},
+      {Oban, oban_config()}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
@@ -33,5 +34,9 @@ defmodule Tecsolfacil.Application do
   def config_change(changed, _new, removed) do
     TecsolfacilWeb.Endpoint.config_change(changed, removed)
     :ok
+  end
+
+  defp oban_config do
+    Application.fetch_env!(:tecsolfacil, Oban)
   end
 end
