@@ -4,6 +4,8 @@ defmodule TecsolfacilWeb.AddressController do
   alias Tecsolfacil.Addresses
   alias Tecsolfacil.Viacep
 
+  import Plug.Conn
+
   action_fallback TecsolfacilWeb.FallbackController
 
   def show(conn, %{"cep" => cep}) do
@@ -17,7 +19,9 @@ defmodule TecsolfacilWeb.AddressController do
   end
 
   def make(conn, _) do
-    %{start: true}
+    %{"authorization" => token} = Map.new(conn.req_headers)
+
+    %{token: token}
     |> Tecsolfacil.Business.new()
     |> Oban.insert()
 

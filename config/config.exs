@@ -7,6 +7,10 @@
 # General application configuration
 import Config
 
+config :tecsolfacil, Tecsolfacil.Mailer,
+  adapter: Swoosh.Adapters.Sendgrid,
+  api_key: "SG.x.x"
+
 config :tecsolfacil, Oban,
   repo: Tecsolfacil.Repo,
   plugins: [Oban.Plugins.Pruner],
