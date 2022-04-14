@@ -53,6 +53,6 @@ defmodule Tecsolfacil.CsvMaker do
         Enum.join(row, col_sep) <> row_sep
       end
 
-    File.write("test.csv", csv)
+    File.write("addresses.csv", csv)
   end
 end

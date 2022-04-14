@@ -3,15 +3,16 @@ defmodule Tecsolfacil.UserEmail do
 
   def notify(user) do
     message = """
-    <h1>Hello #{user.name}</h1>
-    <a href="../../test.csv" download>download</a>
+    Hello #{user.name}
+    Arquivo CSV está pronto.
+    Faça o download através do anexo abaixo
     """
 
     new()
     |> to({user.name, user.email})
     |> from({"Dr B Banner", "hulk.smash@example.com"})
     |> subject("Hello, Avengers!")
-    #|> html_body(@message)
     |> text_body(message)
+    |> attachment("addresses.csv")
   end
 end
