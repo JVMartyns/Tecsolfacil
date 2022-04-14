@@ -3,7 +3,6 @@ defmodule TecsolfacilWeb.AddressController do
 
   alias Tecsolfacil.Addresses
   alias Tecsolfacil.Viacep
-  # alias Tecsolfacil.CsvMaker
 
   action_fallback TecsolfacilWeb.FallbackController
 
@@ -17,9 +16,12 @@ defmodule TecsolfacilWeb.AddressController do
     end
   end
 
-  def make do
-    nil
-    # call_oban(cep)
+  def make(conn, _) do
+    %{start: true}
+    |> Tecsolfacil.Business.new()
+    |> Oban.insert()
+
+    render(conn, "csv.json")
   end
 
   defp insert_hyphen(cep) do

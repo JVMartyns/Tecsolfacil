@@ -20,4 +20,8 @@ defmodule TecsolfacilWeb.AddressView do
       siafi: address.siafi
     }
   end
+
+  def render("csv.json", _) do
+    %{message: "Your file is being created. A notification will be sent when the process is complete."}
+  end
 end

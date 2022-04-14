@@ -26,7 +26,7 @@ defmodule TecsolfacilWeb.Router do
     pipe_through [:api, :authentication]
 
     get "/cep/:cep", AddressController, :show
-    get "/cep/csv", AddressController, :make
+    get "/make/csv", AddressController, :make
   end
 
   # Enables LiveDashboard only for development
