@@ -7,6 +7,19 @@
 # General application configuration
 import Config
 
+config :tecsolfacil, Tecsolfacil.Mailer,
+  adapter: Swoosh.Adapters.Sendgrid,
+  api_key: "SG.x.x"
+
+config :tecsolfacil, Oban,
+  repo: Tecsolfacil.Repo,
+  plugins: [Oban.Plugins.Pruner],
+  queues: [default: 10, events: 50, media: 20]
+
+config :tecsolfacil, Tecsolfacil.Guardian,
+  issuer: "tecsolfacil",
+  secret_key: "W5O7kgq/DGVAoQfDo7rGJrJR3tOzv7QzYozIwxowDpLAGM39s9B4c3WAe79N0Wpv"
+
 config :tecsolfacil,
   ecto_repos: [Tecsolfacil.Repo]
 

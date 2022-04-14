@@ -33,6 +33,11 @@ defmodule Tecsolfacil.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      # Personal Libs--------
+      {:guardian, "~> 2.0"},
+      {:finch, "~> 0.11"},
+      {:oban, "~> 2.11"},
+      # ---------------------
       {:phoenix, "~> 1.6.6"},
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.6"},
