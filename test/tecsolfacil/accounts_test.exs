@@ -40,7 +40,7 @@ defmodule Tecsolfacil.AccountsTest do
       email = "jvmartyns@email.com"
       user = Accounts.get_user!(email)
 
-      assert user.email == email
+      assert user.password == @updated_user["password"]
     end
   end
 end

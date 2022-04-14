@@ -15,9 +15,9 @@ defmodule Tecsolfacil.Accounts do
     |> Repo.insert()
   end
 
-  # def update_user(%User{} = user, attrs) do
-  #   user
-  #   |> User.changeset(attrs)
-  #   |> Repo.update()
-  # end
+  def update_user(%User{} = user, attrs) do
+    user
+    |> User.changeset(attrs)
+    |> Repo.update()
+  end
 end
