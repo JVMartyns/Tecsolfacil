@@ -4,7 +4,6 @@ defmodule TecsolfacilWeb.UserController do
   import Plug.Conn
 
   alias Bcrypt
-  #alias Guardian
   alias Tecsolfacil.Accounts
   alias Tecsolfacil.Guardian
 
