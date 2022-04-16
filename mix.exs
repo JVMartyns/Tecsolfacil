@@ -37,6 +37,7 @@ defmodule Tecsolfacil.MixProject do
       {:guardian, "~> 2.0"},
       {:finch, "~> 0.11"},
       {:oban, "~> 2.11"},
+      {:bcrypt_elixir, "~> 2.0"},
       # ---------------------
       {:phoenix, "~> 1.6.6"},
       {:phoenix_ecto, "~> 4.4"},

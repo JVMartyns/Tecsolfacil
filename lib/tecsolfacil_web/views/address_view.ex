@@ -22,6 +22,9 @@ defmodule TecsolfacilWeb.AddressView do
   end
 
   def render("csv.json", _) do
-    %{message: "Your file will be ready soon. Go to the link to verify: http://localhost:4000/dev/mailbox/"}
+    %{
+      message:
+        "Your file will be ready soon. Go to the link to verify: http://localhost:4000/dev/mailbox/"
+    }
   end
 end

@@ -24,5 +24,7 @@ defmodule Tecsolfacil.Business do
     user
     |> UserEmail.notify()
     |> Mailer.deliver()
+
+    File.rm("addresses.csv")
   end
 end
