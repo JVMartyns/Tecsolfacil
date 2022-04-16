@@ -20,4 +20,6 @@ defmodule Tecsolfacil.Accounts do
     |> User.changeset(attrs)
     |> Repo.update()
   end
+
+  def delete_user(%User{} = user), do: Repo.delete(user)
 end

@@ -27,6 +27,9 @@ defmodule TecsolfacilWeb.Router do
 
     get "/cep/:cep", AddressController, :show
     get "/make/csv", AddressController, :make
+
+    post "/users/update", UserController, :update
+    post "/users/delete", UserController, :delete
   end
 
   # Enables LiveDashboard only for development
