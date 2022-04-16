@@ -4,7 +4,7 @@ defmodule TecsolfacilWeb.UserController do
   import Plug.Conn
 
   alias Bcrypt
-  alias Guardian
+  #alias Guardian
   alias Tecsolfacil.Accounts
   alias Tecsolfacil.Guardian
 
@@ -28,7 +28,7 @@ defmodule TecsolfacilWeb.UserController do
 
     case Accounts.create_user(user_params) do
       {:ok, user} ->
-        render(conn, "show.json", user: user)
+        render(conn, "created.json", user: user)
 
       {:error, reason} ->
         {:error, reason}

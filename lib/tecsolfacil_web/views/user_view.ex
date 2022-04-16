@@ -17,9 +17,9 @@ defmodule TecsolfacilWeb.UserView do
     %{token: token}
   end
 
-  def render("criated.json", %{user: user}) do
+  def render("created.json", %{user: user}) do
     %{
-      status: "criated",
+      status: "created",
       data: render_one(user, UserView, "user.json")
     }
   end

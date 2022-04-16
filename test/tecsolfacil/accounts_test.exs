@@ -3,6 +3,7 @@ defmodule Tecsolfacil.AccountsTest do
 
   alias Tecsolfacil.Accounts
   alias Tecsolfacil.Accounts.User
+  alias Bcrypt
   alias Tecsolfacil.Repo
 
   @user %{
@@ -40,7 +41,7 @@ defmodule Tecsolfacil.AccountsTest do
       email = "jvmartyns@email.com"
       user = Accounts.get_user!(email)
 
-      assert user.password == @updated_user["password"]
+      assert Bcrypt.verify_pass(@updated_user["password"], user.password_hash)
     end
   end
 end
