@@ -38,6 +38,7 @@ defmodule Tecsolfacil.MixProject do
       {:finch, "~> 0.11"},
       {:oban, "~> 2.11"},
       {:bcrypt_elixir, "~> 2.0"},
+      {:mix_test_watch, "~> 1.0", only: [:dev, :test], runtime: false},
       # ---------------------
       {:phoenix, "~> 1.6.6"},
       {:phoenix_ecto, "~> 4.4"},
