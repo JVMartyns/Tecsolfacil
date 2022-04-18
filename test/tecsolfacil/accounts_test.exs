@@ -1,9 +1,9 @@
 defmodule Tecsolfacil.AccountsTest do
   use Tecsolfacil.DataCase
 
+  alias Bcrypt
   alias Tecsolfacil.Accounts
   alias Tecsolfacil.Accounts.User
-  alias Bcrypt
   alias Tecsolfacil.Repo
 
   @user %{
@@ -42,6 +42,15 @@ defmodule Tecsolfacil.AccountsTest do
       user = Accounts.get_user!(email)
 
       assert Bcrypt.verify_pass(@updated_user["password"], user.password_hash)
+    end
+
+    test "delete_user/2" do
+      Accounts.create_user(@user)
+      email = "jvmartyns@email.com"
+
+      user = Accounts.get_user!(email)
+
+      assert {:ok, _user} = Accounts.delete_user(user)
     end
   end
 end

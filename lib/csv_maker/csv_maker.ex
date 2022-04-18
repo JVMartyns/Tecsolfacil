@@ -1,4 +1,7 @@
 defmodule Tecsolfacil.CsvMaker do
+  @moduledoc """
+  Module responsible for creating a CSV file with the addresses stored in the database
+  """
   alias Tecsolfacil.Addresses.Address
   alias Tecsolfacil.Repo
 

@@ -23,8 +23,6 @@ defmodule TecsolfacilWeb.UserController do
   end
 
   def create(conn, %{"user" => user_params}) do
-    IO.inspect(user_params)
-
     case Accounts.create_user(user_params) do
       {:ok, user} ->
         render(conn, "created.json", user: user)
@@ -48,11 +46,13 @@ defmodule TecsolfacilWeb.UserController do
 
   def delete(conn, _) do
     user = get_user_by_token_in_headers(conn)
+
     case Accounts.delete_user(user) do
-    {:ok, _user} ->
-      render(conn, "deleted.json", user: user)
-    {:error, reason} ->
-      {:error, reason}
+      {:ok, _user} ->
+        render(conn, "deleted.json", user: user)
+
+      {:error, reason} ->
+        {:error, reason}
     end
   end
 

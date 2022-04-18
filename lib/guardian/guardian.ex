@@ -1,4 +1,8 @@
 defmodule Tecsolfacil.Guardian do
+  @moduledoc """
+  Module responsible for verifying that the user has the necessary credentials to access the ap
+  """
+
   use Guardian, otp_app: :tecsolfacil
 
   alias Tecsolfacil.Accounts

@@ -9,3 +9,13 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias Tecsolfacil.Repo
+alias Tecsolfacil.Accounts.User
+
+%User{
+  name: "JVMartyns",
+  email: "jvmartyns@email.com",
+  password_hash: Bcrypt.hash_pwd_salt("password")
+}
+|> Repo.insert!()
