@@ -8,5 +8,7 @@ defmodule Tecsolfacil.CsvMakerTest do
 
     assert file = File.read!("addresses.csv")
     assert head in String.split(file, "\n", trim: true)
+
+    File.rm!("addresses.csv")
   end
 end
