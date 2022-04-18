@@ -6,8 +6,8 @@ defmodule TecsolfacilWeb.FallbackController do
   """
   use TecsolfacilWeb, :controller
 
-  alias TecsolfacilWeb.ErrorView
   alias TecsolfacilWeb.ChangesetView
+  alias TecsolfacilWeb.ErrorView
 
   # This clause handles errors returned by Ecto's insert/update/delete.
   def call(conn, {:error, %Ecto.Changeset{} = changeset}) do

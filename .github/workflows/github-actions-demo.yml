@@ -1,0 +1,55 @@
+name: Elixir CI
+
+on: pull_request
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    name: Build and test
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:14
+        ports:
+          - "5432:5432"
+        env:
+          POSTGRES_DB: tecsolfacil_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Elixir
+      uses: erlef/setup-beam@988e02bfe678367a02564f65ca2e37726dc0268f
+      with:
+        elixir-version: '1.12.3' # Define the elixir version [required]
+        otp-version: '24.1' # Define the OTP version [required]
+    - name: Restore dependencies cache
+      uses: actions/cache@v3
+      with:
+        path: deps
+        key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+        restore-keys: ${{ runner.os }}-mix-
+    - name: Install dependencies
+      run: mix deps.get
+    - name: Run tests
+      run: mix test
+    - name: Check unused deps in lockfile
+      run: mix deps.unlock --check-unused
+    - name: Check compile warnings
+      run: mix compile --warnings-as-errors
+    - name: Check code formating
+      run: mix format --check-formatted
+    - name: Check code smells
+      run: mix credo --strict
+    - name: Check tests
+      run: mix test --warnings-as-errors
+    - name: Check seeds consistency
+      run: |
+        mix ecto.create
+        mix ecto.migrate
+        mix run priv/repo/seeds.exs

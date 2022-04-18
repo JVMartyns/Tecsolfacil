@@ -18,16 +18,14 @@ defmodule TecsolfacilWeb.AddressViewTest do
 
   test "renders show.json" do
     assert %{data: %{cep: _cep}} =
-      render(TecsolfacilWeb.AddressView, "show.json", %{address: @address})
+             render(TecsolfacilWeb.AddressView, "show.json", %{address: @address})
   end
 
   test "renders address.json" do
-    assert %{cep: _cep} =
-      render(TecsolfacilWeb.AddressView, "address.json", %{address: @address})
+    assert %{cep: _cep} = render(TecsolfacilWeb.AddressView, "address.json", %{address: @address})
   end
 
   test "renders csv.json" do
-    assert %{message: _message} =
-      render(TecsolfacilWeb.AddressView, "csv.json", %{})
+    assert %{message: _message} = render(TecsolfacilWeb.AddressView, "csv.json", %{})
   end
 end

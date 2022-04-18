@@ -1,4 +1,6 @@
 defmodule Tecsolfacil.UserEmail do
+  @moduledoc false
+
   import Swoosh.Email
 
   def notify(user) do

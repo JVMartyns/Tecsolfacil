@@ -1,9 +1,9 @@
 defmodule Tecsolfacil.AccountsTest do
   use Tecsolfacil.DataCase
 
+  alias Bcrypt
   alias Tecsolfacil.Accounts
   alias Tecsolfacil.Accounts.User
-  alias Bcrypt
   alias Tecsolfacil.Repo
 
   @user %{

@@ -8,32 +8,33 @@ defmodule TecsolfacilWeb.UserViewTest do
 
   test "renders show.json" do
     assert render(TecsolfacilWeb.UserView, "show.json", %{user: @user}) ==
-      %{data: %{email: "user.email", name: "user.name"}}
+             %{data: %{email: "user.email", name: "user.name"}}
   end
 
   test "renders user.json" do
     assert render(TecsolfacilWeb.UserView, "show.json", %{user: @user}) ==
-      %{data: %{email: "user.email", name: "user.name"}}
+             %{data: %{email: "user.email", name: "user.name"}}
   end
 
   test "renders token.json" do
     token = "Imagine tokens"
+
     assert render(TecsolfacilWeb.UserView, "token.json", %{token: token}) ==
-      %{token: token}
+             %{token: token}
   end
 
   test "renders created.json" do
     assert %{data: _data, status: "created"} =
-      render(TecsolfacilWeb.UserView, "created.json", %{user: @user})
+             render(TecsolfacilWeb.UserView, "created.json", %{user: @user})
   end
 
   test "renders updated.json" do
     assert %{data: _data, status: "updated"} =
-      render(TecsolfacilWeb.UserView, "updated.json", %{user: @user})
+             render(TecsolfacilWeb.UserView, "updated.json", %{user: @user})
   end
 
   test "renders deleted.json" do
     assert %{data: _data, status: "deleted"} =
-      render(TecsolfacilWeb.UserView, "deleted.json", %{user: @user})
+             render(TecsolfacilWeb.UserView, "deleted.json", %{user: @user})
   end
 end

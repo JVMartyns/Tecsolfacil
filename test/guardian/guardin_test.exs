@@ -23,7 +23,7 @@ defmodule Tecsolfacil.GuardianTest do
       Tecsolfacil.Accounts.get_user!(attrs["email"])
       |> Tecsolfacil.Guardian.encode_and_sign()
 
-    assert {:ok, resource} = Tecsolfacil.Guardian.resource_from_claims(claims)
+    assert {:ok, _resource} = Tecsolfacil.Guardian.resource_from_claims(claims)
   end
 
   test "resource_from_claims/1 with invalid token" do
