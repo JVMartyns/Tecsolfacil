@@ -46,11 +46,13 @@ defmodule TecsolfacilWeb.UserController do
 
   def delete(conn, _) do
     user = get_user_by_token_in_headers(conn)
+
     case Accounts.delete_user(user) do
-    {:ok, _user} ->
-      render(conn, "deleted.json", user: user)
-    {:error, reason} ->
-      {:error, reason}
+      {:ok, _user} ->
+        render(conn, "deleted.json", user: user)
+
+      {:error, reason} ->
+        {:error, reason}
     end
   end
 

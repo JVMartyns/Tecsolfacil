@@ -4,28 +4,27 @@ defmodule TecsolfacilWeb.UserControllerTest do
   import Plug.Conn
 
   describe "UserController" do
-
     @user_attrs %{
-      "user" =>  %{
-          "name" =>  "JVMartyns",
-          "email" =>  "jvmartyns@email.com",
-          "password" =>  "valid_password"
-          }
+      "user" => %{
+        "name" => "JVMartyns",
+        "email" => "jvmartyns@email.com",
+        "password" => "valid_password"
       }
+    }
     @update_attrs %{
-      "user" =>  %{
-          "name" =>  "JVMartyns",
-          "email" =>  "jvmartyns@email.com",
-          "password" =>  "valid_password_updated"
-          }
+      "user" => %{
+        "name" => "JVMartyns",
+        "email" => "jvmartyns@email.com",
+        "password" => "valid_password_updated"
       }
+    }
     @invalid_attrs %{
-      "user" =>  %{
-          "name" =>  nil,
-          "email" =>  nil,
-          "password" =>  nil
-          }
+      "user" => %{
+        "name" => nil,
+        "email" => nil,
+        "password" => nil
       }
+    }
 
     test "create/2", %{conn: conn} do
       conn = post(conn, Routes.api_user_path(conn, :create, @user_attrs))
@@ -54,8 +53,8 @@ defmodule TecsolfacilWeb.UserControllerTest do
       Tecsolfacil.Accounts.create_user(user_params)
 
       {:ok, token, _claims} =
-      Tecsolfacil.Accounts.get_user!(user_params["email"])
-      |> Tecsolfacil.Guardian.encode_and_sign(%{typ: "access"}, ttl: {1, :hour})
+        Tecsolfacil.Accounts.get_user!(user_params["email"])
+        |> Tecsolfacil.Guardian.encode_and_sign(%{typ: "access"}, ttl: {1, :hour})
 
       conn =
         conn
@@ -70,8 +69,8 @@ defmodule TecsolfacilWeb.UserControllerTest do
       Tecsolfacil.Accounts.create_user(user_params)
 
       {:ok, token, _claims} =
-      Tecsolfacil.Accounts.get_user!(user_params["email"])
-      |> Tecsolfacil.Guardian.encode_and_sign(%{typ: "access"}, ttl: {1, :hour})
+        Tecsolfacil.Accounts.get_user!(user_params["email"])
+        |> Tecsolfacil.Guardian.encode_and_sign(%{typ: "access"}, ttl: {1, :hour})
 
       conn =
         conn
