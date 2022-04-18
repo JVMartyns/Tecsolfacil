@@ -1,10 +1,6 @@
 defmodule TecsolfacilWeb.ErrorView do
   use TecsolfacilWeb, :view
 
-  def render("400.json", _assigns) do
-    %{errors: %{detail: "Not Found"}}
-  end
-
   def render("401.json", _assigns) do
     %{errors: %{detail: "Unauthorized"}}
   end
