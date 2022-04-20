@@ -39,7 +39,7 @@ defmodule TecsolfacilWeb.AddressController do
   end
 
   defp call_viacep(conn, cep) do
-    case Viacep.get_adress(cep) do
+    case Viacep.get_address(cep) do
       {:ok, address} ->
         create(conn, address)
 
