@@ -1,19 +1,40 @@
 defmodule TecsolfacilWeb.AddressControllerTest do
   use TecsolfacilWeb.ConnCase
 
-  describe "AddressController" do
-    @user_params %{
-      "name" => "jvmartyns",
-      "email" => "jv@email.com",
-      "password" => "fake_password"
-    }
+  import Mox
 
+  setup :verify_on_exit!
+
+  @user_params %{
+    "name" => "jvmartyns",
+    "email" => "jv@email.com",
+    "password" => "fake_password"
+  }
+
+  @address {:ok,
+            %{
+              "bairro" => "Ceilândia Norte (Ceilândia)",
+              "cep" => "72210-261",
+              "complemento" => "",
+              "ddd" => "61",
+              "gia" => "",
+              "ibge" => "5300108",
+              "localidade" => "Brasília",
+              "logradouro" => "QNM 26 Conjunto A",
+              "siafi" => "9701",
+              "uf" => "DF"
+            }}
+
+  describe "AddressController" do
     test "show/2", %{conn: conn} do
       Tecsolfacil.Accounts.create_user(@user_params)
 
       {:ok, token, _claims} =
         Tecsolfacil.Accounts.get_user!(@user_params["email"])
         |> Tecsolfacil.Guardian.encode_and_sign(%{typ: "access"}, ttl: {1, :hour})
+
+      Tecsolfacil.MockCepClient
+      |> expect(:get_address, fn _cep -> @address end)
 
       conn =
         conn

@@ -2,7 +2,7 @@ defmodule TecsolfacilWeb.AddressController do
   use TecsolfacilWeb, :controller
 
   alias Tecsolfacil.Addresses
-  alias Tecsolfacil.Viacep
+  alias Tecsolfacil.CepClient
 
   import Plug.Conn
 
@@ -11,7 +11,7 @@ defmodule TecsolfacilWeb.AddressController do
   def show(conn, %{"cep" => cep}) do
     case address = Addresses.get_address!(insert_hyphen(cep)) do
       nil ->
-        call_viacep(conn, cep)
+        call_cep_client(conn, cep)
 
       _else ->
         render(conn, "show.json", address: address)
@@ -38,8 +38,8 @@ defmodule TecsolfacilWeb.AddressController do
     end
   end
 
-  defp call_viacep(conn, cep) do
-    case Viacep.get_adress(cep) do
+  defp call_cep_client(conn, cep) do
+    case CepClient.get_address(cep) do
       {:ok, address} ->
         create(conn, address)
 
