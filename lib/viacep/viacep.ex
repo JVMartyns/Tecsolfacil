@@ -3,6 +3,9 @@ defmodule Tecsolfacil.Viacep do
   This module searches for a zip code in the Viacep API. If not found, returns an error.
   """
 
+  @behaviour Tecsolfacil.CepClient
+
+  @impl Tecsolfacil.CepClient
   def get_address(cep \\ "") do
     viacep_url = "https://viacep.com.br/ws/#{cep}/json/"
 

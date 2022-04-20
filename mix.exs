@@ -40,6 +40,7 @@ defmodule Tecsolfacil.MixProject do
       {:bcrypt_elixir, "~> 2.0"},
       {:mix_test_watch, "~> 1.0", only: [:dev, :test], runtime: false},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
+      {:mox, "~> 1.0", only: :test},
       # ---------------------
       {:phoenix, "~> 1.6.6"},
       {:phoenix_ecto, "~> 4.4"},
