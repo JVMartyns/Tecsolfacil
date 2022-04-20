@@ -12,18 +12,18 @@ defmodule TecsolfacilWeb.AddressControllerTest do
   }
 
   @address {:ok,
-  %{
-    "bairro" => "Ceilândia Norte (Ceilândia)",
-    "cep" => "72210-261",
-    "complemento" => "",
-    "ddd" => "61",
-    "gia" => "",
-    "ibge" => "5300108",
-    "localidade" => "Brasília",
-    "logradouro" => "QNM 26 Conjunto A",
-    "siafi" => "9701",
-    "uf" => "DF"
-  }}
+            %{
+              "bairro" => "Ceilândia Norte (Ceilândia)",
+              "cep" => "72210-261",
+              "complemento" => "",
+              "ddd" => "61",
+              "gia" => "",
+              "ibge" => "5300108",
+              "localidade" => "Brasília",
+              "logradouro" => "QNM 26 Conjunto A",
+              "siafi" => "9701",
+              "uf" => "DF"
+            }}
 
   describe "AddressController" do
     test "show/2", %{conn: conn} do
