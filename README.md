@@ -62,7 +62,7 @@ Now that you already have the token, we can use it to search for an address thro
 ## Export the addresses on database to a csv file
 
 The queried addresses are stored in the database. We can export to a csv file on  endpoint `/api/make/csv` \
-To get the file just check your mailbox on endpoint `/api/make/csv`
+To get the file just check your mailbox on endpoint `/dev/mailbox`
 
 ![make_scv](/.imgs/make_csv.png "Export to csv file")
 
