@@ -6,8 +6,8 @@ defmodule Tecsolfacil.UserEmail do
   def notify(user) do
     message = """
     Hello #{user.name}
-    Arquivo CSV está pronto.
-    Faça o download através do anexo abaixo
+    CSV file is ready.
+    Download the attachment below
     """
 
     new()
