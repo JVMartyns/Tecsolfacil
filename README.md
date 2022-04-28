@@ -5,9 +5,7 @@
   * Docker - `https://docs.docker.com/get-docker/`
   * Docker-compose - `https://docs.docker.com/compose/install/`
 
-## Start your Phoenix server:
-
-Install dependencies with 
+## Start your Phoenix server with:
 ```
 docker-compose up --build
 ```
